@@ -12,6 +12,8 @@ module.exports = defineConfig(
       baseUrl,
       video: false,
       supportFile: false,
+      viewportWidth: 1600,
+      viewportHeight: 1200,
       screenshotOnRunFailure: false,
       setupNodeEvents(on, config) {
         // implement node event listeners here

@@ -8,3 +8,9 @@ Feature: Search
     And I search for "fullstackutvecklare"
     Then I get search results containing "fullstackutvecklare"
 
+  Scenario: When I follow a search result link I expect to find relevant content
+    Given I have a search result containing "fullstackutvecklare"
+    When I follow the search result link
+    Then I should see "fullstackutvecklare" in the top quarter of the content
+
+
