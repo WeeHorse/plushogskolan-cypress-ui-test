@@ -18,6 +18,11 @@ When('I search for {string}', (searchString) => {
   cy.get('#s').type(searchString + '{enter}')
 });
 
-Then('I get search results containing {string}', (a) => {
-  // TODO: implement step
+Then('I get search results containing {string}', (searchString) => {
+  cy.get('#main > header.page-header').should('contain', searchString)
+  cy.get('article').each(($el) => {
+    // cy.wrap($el.text()).contains(searchString, { matchCase: false })
+    let text = cy.wrap($el.text().toLowerCase())
+    text.should('contain', searchString.toLowerCase())
+  })
 });
